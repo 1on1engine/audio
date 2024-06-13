@@ -30,19 +30,21 @@
         color: #fff;
         border: none;
         border-radius: 50%;
-        width: 65px;
-        height: 65px;
+        width: 80px;
+        height: 80px;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
       }
       .play-btn svg {
+        width: 64px;
+        height: 64px;
         fill: #fff;
       }
       .waveform {
         flex: 1;
-        height: 60px;
+        height: 100px;
         min-width: 0; /* Ensures proper flex behavior */
       }
       .audio-time {
@@ -56,8 +58,12 @@
           justify-content: center;
         }
         .play-btn {
-          width: 50px;
-          height: 50px;
+          width: 60px;
+          height: 60px;
+        }
+        .play-btn svg {
+          width: 40px;
+          height: 40px;
         }
         .waveform {
           height: 50px;
@@ -108,7 +114,7 @@
           container: "#waveform",
           waveColor: "#cccccc",
           progressColor: "#d32f2f",
-          height: 60,
+          height: 100,
           barWidth: 2,
           cursorWidth: 0,
         });
