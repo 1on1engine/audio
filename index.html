@@ -60,11 +60,13 @@
         flex: 1;
         height: 100px;
         min-width: 0; /* Ensures proper flex behavior */
+        display: none;
       }
       .audio-time {
         color: #888;
         font-weight: bold;
         text-align: center;
+        font-size: 22px;
       }
       @media (max-width: 768px) {
         .audio-player-container {
@@ -149,7 +151,8 @@
         });
 
         waveform.load(
-          "https://mr-rony356.github.io/Eric-Audio-button/eric%20audio.mp3"
+          // "https://mr-rony356.github.io/Eric-Audio-button/eric%20audio.mp3"
+          "./eric audio.mp3"
         );
 
         playButton.addEventListener("click", () => {
