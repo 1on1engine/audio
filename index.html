@@ -37,7 +37,21 @@
         justify-content: center;
         cursor: pointer;
       }
-      .play-btn svg {
+
+      .speed-btn {
+        background-color: rgb(204, 0, 0);
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .play-btn svg,
+      .speed-btn svg {
         width: 64px;
         height: 64px;
         fill: #fff;
@@ -57,9 +71,15 @@
           flex-wrap: wrap;
           justify-content: center;
         }
-        .play-btn {
+        .play-btn,
+        .speed-btn {
           width: 65px;
           height: 65px;
+        }
+      
+        .speed-btn {
+          width: 35px;
+          height: 35px;
         }
         .waveform {
           height: 100px;
@@ -69,7 +89,8 @@
         .audio-time {
           margin-top: 10px;
         }
-        .play-btn {
+        .play-btn,
+        .speed-btn {
           margin-top: 5px;
         }
       }
@@ -93,6 +114,17 @@
             ></path>
           </svg>
         </button>
+        <button class="speed-btn">
+          <svg
+            width="32"
+            height="48"
+            viewBox="0 0 24 24"
+            fill="#cc0000"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M13 2v10h7l-9 12v-10H4l9-12z" />
+          </svg>
+        </button>
         <div class="waveform" id="waveform"></div>
         <div class="audio-time" id="audio-time">0:00</div>
       </div>
@@ -105,6 +137,7 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const playButton = document.querySelector(".play-btn");
+        const speedButton = document.querySelector(".speed-btn");
         const audioTime = document.getElementById("audio-time");
         const waveform = WaveSurfer.create({
           container: "#waveform",
@@ -127,7 +160,6 @@
                 <circle cx="24.5" cy="24.5" r="24.5" fill="#cc0000"></circle>
                 <path d="M34.5636 26.1857L21.5731 35.1182C20.4707 35.8754 19.0558 34.9585 19.0558 33.4318V15.5669C19.0558 14.0426 20.4686 13.1233 21.5731 13.883L34.5636 22.8154C34.8144 22.9851 35.0228 23.2303 35.1678 23.5263C35.3128 23.8222 35.3892 24.1583 35.3892 24.5006C35.3892 24.8428 35.3128 25.1789 35.1678 25.4748C35.0228 25.7708 34.8144 26.016 34.5636 26.1857Z" fill="white"></path>
               </svg>
-
             `;
           } else {
             waveform.play();
@@ -138,6 +170,25 @@
                 <rect x="27" y="14" width="3" height="20" rx="1.5" fill="white"></rect>
               </svg>
             `;
+          }
+        });
+
+        speedButton.addEventListener("click", () => {
+          const currentPlaybackRate = waveform.getPlaybackRate();
+          if (currentPlaybackRate === 1) {
+            waveform.setPlaybackRate(1.5);
+            speedButton.innerHTML = `
+            <svg width="32" height="48" viewBox="0 0 24 24" fill="#cc0000" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2v10h7l-9 12v-10H4l9-12z"/>
+            `;
+            speedButton.style.backgroundColor = "#FFD700"; // Change button color to indicate speed up
+          } else {
+            waveform.setPlaybackRate(1);
+            speedButton.innerHTML = `
+            <svg width="32" height="48" viewBox="0 0 24 24" fill="#cc0000" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13 2v10h7l-9 12v-10H4l9-12z"/>
+            `;
+            speedButton.style.backgroundColor = "rgb(204, 0, 0)"; // Revert button color to original
           }
         });
 
