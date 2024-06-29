@@ -17,6 +17,9 @@
       #plyr-audio {
         pointer-events: none;
       }
+      .plyr--audio .plyr__controls {
+        background: transparent !important;
+      }
       .audio-player-container {
         display: flex;
         align-items: center;
@@ -152,7 +155,6 @@
             player.speed = 1;
             // speedButton.style.backgroundColor = "rgb(204, 0, 0)"; // Revert button color to original
             speedButton.innerHTML = `<img src="./run.png" alt="" height="30px">`;
-
           }
         });
 
