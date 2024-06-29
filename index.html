@@ -13,6 +13,7 @@
         justify-content: center;
         width: 100%;
         min-height: max-content;
+        /* height: 350px; */
       }
       #plyr-audio {
         pointer-events: none;
@@ -23,7 +24,6 @@
       .audio-player-container {
         display: flex;
         align-items: center;
-        gap: 10px;
         max-width: 100%;
         width: 100%;
         height: 100%;
@@ -44,6 +44,7 @@
         width: 100%;
         height: 250px;
         object-fit: contain;
+        margin-bottom: 15px;
       }
       .speed-btn {
         color: #fff;
@@ -69,14 +70,13 @@
       }
       @media (max-width: 768px) {
         .audio-player-container {
-          flex-wrap: wrap;
           justify-content: center;
         }
-        .play-btn,
-        .speed-btn {
-          width: 65px;
-          height: 65px;
-        }
+        .play-btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
 
         .speed-btn {
           width: 35px;
@@ -84,9 +84,6 @@
         }
       }
       @media (max-width: 768px) {
-        .audio-time {
-          margin-top: 10px;
-        }
         .play-btn,
         .speed-btn {
           margin-top: 5px;
